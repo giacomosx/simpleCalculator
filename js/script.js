@@ -31,7 +31,13 @@ function multiply(num1, num2) {
     return num1 * num2;
 }
 function divide(num1, num2) {
-    return (num1 / num2).toFixed(2);
+    let result = num1 / num2;
+    if (Number.isInteger(result)) {
+        return result;
+    } else {
+        return result.toFixed(2);
+    }
+    
 }
 
 function trackValue(value) {
