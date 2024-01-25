@@ -4,12 +4,16 @@
 
 
 :root {
-    --color-btn: #2D3250;
-    --bg-btn--orange: #FFD24C;
+    --orange: #FFD24C;
     --bg-btn--blue-light: #92B4EC;
-    --bg--light: #F6F8FA;
-    --bg--dark: #2D3250;
-    --bg--display--dark: #7077A1;
+    --gray--light: #F6F8FA;
+    --gray--dark: #A9A9A9;
+    --blue-darkest: #2D3250;
+    --blue-dark: #7077A1;
+}
+
+.container {
+    background-color: var(--blue-darkest);
 }
 
 button {
@@ -44,7 +48,8 @@ main {
     font-family: 'Titillium Web', sans-serif;
 }
 
-#calculator {
+.calculator {
+    background-color: var(--gray--light);
     width: 420px;
     height: 600px;
     border: 1px solid #ccc;
@@ -66,7 +71,7 @@ main {
 }
 
 #themeBtn > span {
-    color: var(--color-btn);
+    color: var(--blue-darkest);
     background-color: var(--bg-btn--blue-light);
     cursor: pointer;
     width: 38px;
@@ -90,7 +95,8 @@ main {
     flex-direction: row-reverse;
     font-size: 48px;
     transition: all 500ms;
-    color: #ccc;
+    color: var(--gray--dark);
+    background-color: #fff;
 }
 
 #buttons {
@@ -123,8 +129,9 @@ main {
     gap: 15px;
 }
 
-.numbersBtn {
-    color: var(--color-btn);
+.numberBtn {
+    color: var(--blue-darkest);
+    border: 1px solid var(--gray--dark);
 }
 
 .operationBtn {
@@ -133,23 +140,35 @@ main {
 
 .functionBtn {
     flex-grow: 1;
-    background-color: var(--bg-btn--orange);
+    background-color: var(--orange);
+}
+
+.theme-light {
+    background-color: var(--gray--light);
+    box-shadow: none;
 }
 
 .theme--dark {
-    background-color: var(--bg--dark);
+    background-color: var(--blue-darkest);
+    box-shadow: 0 0 10px var(--gray--dark);
 }
 
 .display--dark {
-    background-color: var(--bg--display--dark);
-    border-color: var(--bg--dark);
+    background-color: var(--blue-dark);
+    border-color: var(--blue-darkest);
+}
+
+.btn--theme-dark {
+    background-color: var(--gray--dark);
+}
+
+.container--dark {
+    background-color: var(--gray--light);
 }
 
 button:hover {
-    box-shadow: 0 0 5px #ccc;
     scale: 1.1;
 }
-
 
 .active {
     scale: 1.1;

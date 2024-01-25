@@ -121,23 +121,26 @@ function mainScript() {
 }
 
 function changeTheme() {
+    const container = document.querySelector('.container');
     const toggleBtn = themeBtn.querySelector('span');
-    const calculator = document.getElementById('calculator');
-    const numbersBtns = document.querySelectorAll('.numberBtn');
+    const calculator = document.querySelector('.calculator');
+    const numberBtn = document.querySelectorAll('.numberBtn');
 
     toggleBtn.classList.toggle('darkMode');
      
     if(toggleBtn.classList.contains('darkMode')) {
         toggleBtn.innerHTML = '<ion-icon name="moon-sharp"></ion-icon>';
-        
+
+        container.classList.add('container--dark');
         calculator.classList.add('theme--dark');
         display.classList.add('display--dark');
         
     } else {
-        toggleBtn.innerHTML = '<ion-icon name="sunny-sharp"></ion-icon>';      
-        
-         calculator.classList.remove('theme--dark');
-         display.classList.remove('display--dark');
+        toggleBtn.innerHTML = '<ion-icon name="sunny-sharp"></ion-icon>';  
+
+        container.classList.remove('container--dark');
+        calculator.classList.remove('theme--dark');
+        display.classList.remove('display--dark');
     }
 
 }
