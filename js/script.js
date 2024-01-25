@@ -92,6 +92,11 @@ function calculate(num1, num2, operator) {
 
 
 function getResult() {
+    document.querySelectorAll('.operationBtn').forEach(btn => {
+        btn.classList.remove('active');
+    })
+
+
     let total = calculate(mainValue, lastValueInsert, lastSymbolInsert);
 
     display.innerHTML = total;
@@ -104,7 +109,11 @@ function mainScript() {
 
     functionsBtns.forEach(functionBtn => {
         functionBtn.addEventListener('click', function() {
-            functionBtn.classList.toggle('active');
+            functionsBtns.forEach(button => {
+                button.classList.remove('active');
+            })
+
+            functionBtn.classList.add('active');
 
             lastSymbolInsert = functionBtn.innerHTML;
 
