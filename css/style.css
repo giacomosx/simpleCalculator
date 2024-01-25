@@ -1,0 +1,159 @@
+@import url("https://necolas.github.io/normalize.css/latest/normalize.css");
+/* normalizing css */
+@import url('https://fonts.googleapis.com/css2?family=Play&family=Titillium+Web&display=swap');
+
+
+:root {
+    --color-btn: #2D3250;
+    --bg-btn--orange: #FFD24C;
+    --bg-btn--blue-light: #92B4EC;
+    --bg--light: #F6F8FA;
+    --bg--dark: #2D3250;
+    --bg--display--dark: #7077A1;
+}
+
+button {
+    border: unset; 
+    cursor: pointer;
+    width: 80px;
+    height: 50px;
+    border-radius: 8px;
+    font-size: 24px;
+}
+
+.flex {
+    display: flex;
+}
+
+.jc-center {
+  justify-content: center;  
+}
+
+.jc-space-beetwen {
+    justify-content: space-between;
+}
+
+.ai-center {
+    align-items: center;
+}
+
+main {
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+#calculator {
+    width: 420px;
+    height: 600px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    flex-direction: column;
+    gap: 40px;
+    transition: all 500ms;
+}
+
+
+#themeBtn {
+    width: 80px;
+    height: 40px;
+    align-self: flex-end;
+    position: relative;
+    right: 22px;
+    border-radius: 40px;
+    border: 1px solid #ccc;
+}
+
+#themeBtn > span {
+    color: var(--color-btn);
+    background-color: var(--bg-btn--blue-light);
+    cursor: pointer;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    transition: all 500ms;
+}
+
+
+.darkMode {
+    transform: translate(41px);
+}
+
+.display {
+    border: 1px solid #ccc;
+    width: 85%;
+    height: 80px;
+    padding-right: 19px;
+    border-radius: 8px;
+    font-family: 'Play', sans-serif;
+    flex-direction: row-reverse;
+    font-size: 48px;
+    transition: all 500ms;
+    color: #ccc;
+}
+
+#buttons {
+    width: 90%;
+    flex-wrap: wrap;
+}
+
+#numbersBtnCont {
+    width: 75%;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+#decimalBtn, #zeroBtn {
+    flex-grow: 1;
+    align-items: center;
+}
+
+#operationBtnCont {
+    width: 25%;
+    gap: 15px;
+    flex-direction: column;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+
+#functionBtnCont {
+    width: 90%;
+    gap: 15px;
+}
+
+.numbersBtn {
+    color: var(--color-btn);
+}
+
+.operationBtn {
+    background-color: var(--bg-btn--blue-light);
+}
+
+.functionBtn {
+    flex-grow: 1;
+    background-color: var(--bg-btn--orange);
+}
+
+.theme--dark {
+    background-color: var(--bg--dark);
+}
+
+.display--dark {
+    background-color: var(--bg--display--dark);
+    border-color: var(--bg--dark);
+}
+
+button:hover {
+    box-shadow: 0 0 5px #ccc;
+    scale: 1.1;
+}
+
+
+.active {
+    scale: 1.1;
+}
+
+
+
