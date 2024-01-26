@@ -60,7 +60,7 @@ main {
 }
 
 
-#themeBtn {
+.button--theme-change {
     width: 80px;
     height: 40px;
     align-self: flex-end;
@@ -70,7 +70,7 @@ main {
     border: 1px solid #ccc;
 }
 
-#themeBtn > span {
+.button--theme-change > span {
     color: var(--blue-darkest);
     background-color: var(--bg-btn--blue-light);
     cursor: pointer;

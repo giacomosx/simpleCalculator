@@ -1,139 +1,58 @@
-let temporaryValueCont = [];
-let mainValue = 0;
-let lastValueInsert = 0;
-let lastSymbolInsert = '';
-
-const themeBtn = document.getElementById('themeBtn');
+let isDisplayed;
 const display = document.querySelector('.display');
 
 window.onload = function (){
     takeValues();
-    mainScript();
+    
+    document.getElementById('equalityBtn').onclick = getResult;
     
     document.getElementById('resetBtn').addEventListener('click', function(){
-        resetValues();
         display.innerHTML = '';
+        removeActiveClass();
     })
-
-    document.getElementById('equalityBtn').onclick = getResult;
-
+    
+    const themeBtn = document.getElementById('themeBtn');
     themeBtn.onclick = changeTheme;
 }
 
 
-function sum(num1, num2) {
-    return num1 + num2;
-}
-function substract(num1, num2) {
-    return num1 - num2;
-}
-function multiply(num1, num2) {
-    return num1 * num2;
-}
-function divide(num1, num2) {
-    let result = num1 / num2;
-    if (Number.isInteger(result)) {
-        return result;
-    } else {
-        return result.toFixed(2);
-    }
-    
-}
-
-function trackValue(value) {
-    mainValue = value;
-    value = 0;
-    temporaryValueCont = [];
-}
-
-function resetValues() {
-    temporaryValueCont = [];
-    mainValue = 0;
-    lastValueInsert = 0;
-}
-
-
 function takeValues() {
-    const numbersBtns = document.querySelectorAll('.numberBtn');
+    const operatorList = ['+','-','*','/']
+    const numbersBtns = document.querySelectorAll('.usefulBtn');
 
     numbersBtns.forEach(numberBtn => {
         numberBtn.addEventListener('click', function(){
-            temporaryValueCont.push(numberBtn.innerHTML);
-            lastValueInsert = Number(temporaryValueCont.join().replaceAll(',',''))
+            if (isDisplayed) {
+                display.innerHTML = '';
+                isDisplayed = false;
+            }
 
-            display.innerHTML = lastValueInsert;
+            if (operatorList.includes(numberBtn.innerHTML)) {
+                removeActiveClass() 
 
+                numberBtn.classList.add('active');
+            }
+
+            display.innerHTML += numberBtn.innerHTML;
+            console.log(numberBtn.innerHTML);
         })
     })
 }
-
-
-function calculate(num1, num2, operator) {
-    let calculateResult = 0;
-    switch (operator) {
-        case '+':
-            calculateResult = sum(num1, num2);
-            break;
-        case '-':
-            calculateResult = substract(num1, num2);
-            break;
-        case '*':
-            calculateResult = multiply(num1, num2);
-            break;
-        case '/':
-            calculateResult = divide(num1, num2);
-            break;
-        default:
-            break;
-        }
-
-    return calculateResult;
-}
-
 
 function getResult() {
-    document.querySelectorAll('.operationBtn').forEach(btn => {
-        btn.classList.remove('active');
-    })
-
-
-    let total = calculate(mainValue, lastValueInsert, lastSymbolInsert);
-
-    display.innerHTML = total;
-    resetValues();
+    display.innerHTML = eval(display.innerHTML);
+    removeActiveClass()
+    isDisplayed = true;
 }
 
 
-function mainScript() {
+function removeActiveClass() {
     const functionsBtns = document.querySelectorAll('.operationBtn');
 
-    functionsBtns.forEach(functionBtn => {
-        functionBtn.addEventListener('click', function() {
-            functionsBtns.forEach(button => {
-                button.classList.remove('active');
-            })
-
-            functionBtn.classList.add('active');
-
-            lastSymbolInsert = functionBtn.innerHTML;
-
-            if (mainValue === 0) {
-                trackValue(lastValueInsert);
-            } else {
-                let partialResult;
-                
-                partialResult = calculate(mainValue, lastValueInsert, lastSymbolInsert);
-
-                display.innerHTML = partialResult;
-
-                trackValue(partialResult);
-            }      
-                console.log(lastSymbolInsert);
-                console.log(mainValue);
-        })
-                    
+    functionsBtns.forEach(button => {
+        button.classList.remove('active');
     })
-}
+} 
 
 function changeTheme() {
     const container = document.querySelector('.container');
