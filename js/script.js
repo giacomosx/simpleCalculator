@@ -34,7 +34,6 @@ function takeValues() {
             }
 
             display.innerHTML += numberBtn.innerHTML;
-            console.log(numberBtn.innerHTML);
         })
     })
 }
