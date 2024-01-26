@@ -51,7 +51,7 @@ main {
 .calculator {
     background-color: var(--gray--light);
     width: 420px;
-    height: 600px;
+    height: 680px;
     border: 1px solid #ccc;
     border-radius: 15px;
     flex-direction: column;
@@ -88,7 +88,7 @@ main {
 .display {
     border: 1px solid #ccc;
     width: 85%;
-    height: 80px;
+    height: 115px;
     padding-right: 19px;
     border-radius: 8px;
     font-family: 'Play', sans-serif;
